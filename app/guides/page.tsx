@@ -216,10 +216,6 @@ export default function GuidesPage() {
               ))}
             </div>
           </FadeIn>
-                </Button>
-              ))}
-            </div>
-          </FadeIn>
 
           {loading ? (
             <div className="text-center py-20">
