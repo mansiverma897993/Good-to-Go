@@ -158,11 +158,11 @@ export const SlideIn = ({ children, delay = 0, direction = 'left' }: SlideInProp
 export const FloatingBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* GitHub Logos */}
+      {/* GitHub Logos - Greenish and Darker */}
       {[...Array(4)].map((_, i) => (
         <motion.div
           key={`github-${i}`}
-          className="absolute opacity-5 dark:opacity-8"
+          className="absolute opacity-25 dark:opacity-35 text-green-600/60 dark:text-green-500/50"
           animate={{
             x: [0, 150, 0],
             y: [0, -150, 0],
@@ -177,20 +177,22 @@ export const FloatingBackground = () => {
             left: `${25 * i}%`,
             top: `${20 + i * 15}%`,
             fontSize: `${180 + i * 40}px`,
+            filter: 'drop-shadow(0 0 12px rgba(34, 197, 94, 0.4))',
           }}
         >
           🐙
         </motion.div>
       ))}
 
-      {/* Gears */}
+      {/* Gears - Greenish and Darker */}
       {[...Array(5)].map((_, i) => (
         <motion.div
           key={`gear-${i}`}
-          className="absolute opacity-5 dark:opacity-10"
+          className="absolute opacity-25 dark:opacity-35 text-green-600/60 dark:text-green-500/50"
           animate={{
             x: [0, 100, 0],
             y: [0, -100, 0],
+            rotate: [0, -360, 0],
           }}
           transition={{
             duration: 15 + i * 2,
@@ -201,6 +203,7 @@ export const FloatingBackground = () => {
             left: `${20 * i}%`,
             top: `${30 + i * 10}%`,
             fontSize: `${200 + i * 50}px`,
+            filter: 'drop-shadow(0 0 12px rgba(34, 197, 94, 0.4))',
           }}
         >
           ⚙️
