@@ -30,21 +30,21 @@ const categories: Category[] = [
     name: "Git & GitHub",
     description: "Master version control basics",
     icon: <Code className="w-5 h-5" />,
-    count: 2,
+    count: 3,
   },
   {
     id: "Contributing",
     name: "Contributing",
     description: "Learn to contribute effectively",
     icon: <Users className="w-5 h-5" />,
-    count: 1,
+    count: 2,
   },
   {
     id: "Best Practices",
     name: "Best Practices",
     description: "Follow industry standards",
     icon: <BookOpen className="w-5 h-5" />,
-    count: 1,
+    count: 2,
   },
 ]
 

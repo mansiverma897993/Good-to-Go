@@ -26,9 +26,6 @@ export function Navigation() {
           <Link href="/learning" className="text-sm hover:text-primary transition-colors">
             Learn
           </Link>
-          <Link href="/issues" className="text-sm hover:text-primary transition-colors">
-            Issues
-          </Link>
         </div>
 
         <Button asChild variant="default">

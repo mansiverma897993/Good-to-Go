@@ -79,13 +79,16 @@ export function Footer() {
 
         <Separator className="my-8" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-foreground/60">
-          <p>&copy; 2025 gtg - Good To Go. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="hover:text-primary">
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-foreground/60 gap-4">
+          <div>
+            <p>&copy; 2025 gtg - Good To Go. All rights reserved.</p>
+            <p className="mt-2 text-xs text-foreground/50">💜 Made by <span className="font-semibold text-primary">MAN$I VERMA</span></p>
+          </div>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-primary">
+            <Link href="/terms" className="hover:text-primary transition-colors">
               Terms of Service
             </Link>
           </div>

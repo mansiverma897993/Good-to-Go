@@ -101,6 +101,116 @@ export const StaggerItem = ({ children }: StaggerItemProps) => {
   );
 };
 
+interface FloatingProps {
+  children: ReactNode;
+  delay?: number;
+  duration?: number;
+}
+
+export const Floating = ({ children, delay = 0, duration = 3 }: FloatingProps) => {
+  return (
+    <motion.div
+      animate={{ y: [0, -20, 0] }}
+      transition={{ delay, duration, repeat: Infinity, ease: 'easeInOut' }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+interface PulseAnimationProps {
+  children: ReactNode;
+  delay?: number;
+}
+
+export const PulseAnimation = ({ children, delay = 0 }: PulseAnimationProps) => {
+  return (
+    <motion.div
+      animate={{ scale: [1, 1.05, 1] }}
+      transition={{ delay, duration: 2, repeat: Infinity }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+interface SlideInProps {
+  children: ReactNode;
+  delay?: number;
+  direction?: 'left' | 'right';
+}
+
+export const SlideIn = ({ children, delay = 0, direction = 'left' }: SlideInProps) => {
+  const initial = direction === 'left' ? { x: -100, opacity: 0 } : { x: 100, opacity: 0 };
+  
+  return (
+    <motion.div
+      initial={initial}
+      whileInView={{ x: 0, opacity: 1 }}
+      transition={{ delay, duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+export const FloatingBackground = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      {/* GitHub Logos */}
+      {[...Array(4)].map((_, i) => (
+        <motion.div
+          key={`github-${i}`}
+          className="absolute opacity-5 dark:opacity-8"
+          animate={{
+            x: [0, 150, 0],
+            y: [0, -150, 0],
+            rotate: [0, 360, 0],
+          }}
+          transition={{
+            duration: 20 + i * 3,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+          style={{
+            left: `${25 * i}%`,
+            top: `${20 + i * 15}%`,
+            fontSize: `${180 + i * 40}px`,
+          }}
+        >
+          🐙
+        </motion.div>
+      ))}
+
+      {/* Gears */}
+      {[...Array(5)].map((_, i) => (
+        <motion.div
+          key={`gear-${i}`}
+          className="absolute opacity-5 dark:opacity-10"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, -100, 0],
+          }}
+          transition={{
+            duration: 15 + i * 2,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+          style={{
+            left: `${20 * i}%`,
+            top: `${30 + i * 10}%`,
+            fontSize: `${200 + i * 50}px`,
+          }}
+        >
+          ⚙️
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+
 interface HoverScaleProps {
   children: ReactNode;
   scale?: number;
